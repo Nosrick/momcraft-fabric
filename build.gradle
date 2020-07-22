@@ -17,10 +17,15 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation( "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 
-	modApi "io.github.cottonmc:LibGui:${project.libgui_version}"
-	modApi("io.github.prospector:modmenu:${project.modmenu_version}")
+	modImplementation("io.github.cottonmc:LibGui:${project.libgui_version}")
+	modImplementation("io.github.prospector:modmenu:${project.modmenu_version}")
+
+	modImplementation group: 'net.devtech', name: 'arrp', version: '0.2.6'
+
+	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
+	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}")
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
@@ -83,5 +88,15 @@ repositories {
 	maven {
 		name = "CottonMC"
 		url = "https://server.bbkr.space/artifactory/libs-release"
+	}
+
+	maven {
+		name = "Ladysnake Libs"
+		url = 'https://dl.bintray.com/ladysnake/libs'
+	}
+
+	maven {
+		name = "ARRP"
+		url = 'https://raw.githubusercontent.com/Devan-Kerman/Devan-Repo/master/'
 	}
 }
