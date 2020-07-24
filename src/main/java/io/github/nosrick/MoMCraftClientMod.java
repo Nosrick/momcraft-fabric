@@ -1,9 +1,12 @@
 package io.github.nosrick;
 
+import io.github.nosrick.block.entity.colorprovider.ResearchAltarColorProvider;
 import io.github.nosrick.block.entity.renderer.ResearchAltarRenderer;
 import io.github.nosrick.init.ModBlockEntities;
+import io.github.nosrick.init.ModBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 
 public class MoMCraftClientMod implements ClientModInitializer {
 
@@ -12,5 +15,9 @@ public class MoMCraftClientMod implements ClientModInitializer {
         BlockEntityRendererRegistry.INSTANCE.register(
                 ModBlockEntities.BlockEntities.RESEARCH_ALTAR.blockEntity,
                 ResearchAltarRenderer::new);
+
+        ColorProviderRegistry.BLOCK.register(
+                new ResearchAltarColorProvider(),
+                ModBlocks.Blocks.RESEARCH_ALTAR.block);
     }
 }

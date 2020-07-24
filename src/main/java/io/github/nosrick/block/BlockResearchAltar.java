@@ -10,8 +10,6 @@ import net.minecraft.world.BlockView;
 
 public class BlockResearchAltar extends BlockWithEntityBase {
 
-
-
     public BlockResearchAltar() {
         super(
                 FabricBlockSettings.of(
@@ -21,7 +19,6 @@ public class BlockResearchAltar extends BlockWithEntityBase {
 "researchaltar",
             BlockEntityResearchAltar::new);
     }
-
 
     @Override
     public BlockEntity createBlockEntity(BlockView world) {

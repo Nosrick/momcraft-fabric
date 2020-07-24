@@ -1,5 +1,6 @@
 package io.github.nosrick.block.entity;
 
+import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.init.ModBlockEntities;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Tickable;
@@ -7,7 +8,7 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.Random;
 
-public class BlockEntityResearchAltar extends BlockEntityBase implements Tickable {
+public class BlockEntityResearchAltar extends BlockEntityBase implements Tickable, IOwnable {
 
     public int ticks;
     public float nextPageAngle;
@@ -19,6 +20,9 @@ public class BlockEntityResearchAltar extends BlockEntityBase implements Tickabl
     public float field_11964;
     public float field_11963;
     public float field_11962;
+
+    protected String owner;
+    protected int ownerColour = 0xFFFFFF;
 
     protected static final Random RANDOM = new Random();
 
@@ -81,5 +85,25 @@ public class BlockEntityResearchAltar extends BlockEntityBase implements Tickabl
         h = MathHelper.clamp(h, -0.2F, 0.2F);
         this.field_11967 += (h - this.field_11967) * 0.9F;
         this.nextPageAngle += this.field_11967;
+    }
+
+    @Override
+    public String getOwner() {
+        return owner;
+    }
+
+    @Override
+    public void setOwner(String newOwner) {
+        owner = newOwner;
+    }
+
+    @Override
+    public int getColour() {
+        return ownerColour;
+    }
+
+    @Override
+    public void setColour(int newColour) {
+        ownerColour = newColour;
     }
 }
