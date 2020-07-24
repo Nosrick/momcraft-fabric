@@ -10,6 +10,8 @@ import net.minecraft.world.BlockView;
 
 public class BlockResearchAltar extends BlockWithEntityBase {
 
+
+
     public BlockResearchAltar() {
         super(
                 FabricBlockSettings.of(

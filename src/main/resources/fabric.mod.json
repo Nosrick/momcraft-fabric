@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "momcraft",
+  "id": "master_of_magic",
   "version": "${version}",
 
   "name": "MoMCraft",
@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "io.github.nosrick.MoMCraftMod"
+    ],
+    "client": [
+      "io.github.nosrick.MoMCraftClientMod"
     ],
     "modmenu": [
       "io.github.nosrick.dependency.ModMenuApiImpl"
