@@ -25,7 +25,13 @@
       "io.github.nosrick.MoMCraftClientMod"
     ],
     "modmenu": [
-      "io.github.nosrick.dependency.ModMenuApiImpl"
+      "io.github.nosrick.dependency.modmenu.ModMenuApiImpl"
+    ],
+    "cardinal-components-entity": [
+      "io.github.nosrick.dependency.cardinalcomponents.ModComponents"
+    ],
+    "cardinal-components-item": [
+      "io.github.nosrick.dependency.cardinalcomponents.ModComponents"
     ]
   },
   "mixins": [

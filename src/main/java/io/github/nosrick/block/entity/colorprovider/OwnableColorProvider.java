@@ -1,21 +1,24 @@
 package io.github.nosrick.block.entity.colorprovider;
 
-import io.github.nosrick.block.entity.BlockEntityResearchAltar;
+import io.github.nosrick.api.interfaces.IOwnable;
+import io.github.nosrick.block.entity.BlockEntityOwnable;
+import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockRenderView;
 
-public class ResearchAltarColorProvider implements BlockColorProvider {
+public class OwnableColorProvider implements BlockColorProvider {
 
     @Override
     public int getColor(BlockState state, BlockRenderView world, BlockPos pos, int tintIndex) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
 
-        if(blockEntity instanceof BlockEntityResearchAltar)
+        if(blockEntity instanceof BlockEntityOwnable)
         {
-            BlockEntityResearchAltar researchAltar = (BlockEntityResearchAltar)blockEntity;
+            BlockEntityOwnable blockEntityOwnable = (BlockEntityOwnable) blockEntity;
+            IOwnable researchAltar = blockEntityOwnable.getComponent(ModComponents.OWNABLE);
             return researchAltar.getColour();
         }
 

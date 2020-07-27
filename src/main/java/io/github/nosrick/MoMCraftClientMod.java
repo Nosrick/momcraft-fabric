@@ -1,6 +1,6 @@
 package io.github.nosrick;
 
-import io.github.nosrick.block.entity.colorprovider.ResearchAltarColorProvider;
+import io.github.nosrick.block.entity.colorprovider.OwnableColorProvider;
 import io.github.nosrick.block.entity.renderer.ResearchAltarRenderer;
 import io.github.nosrick.init.ModBlockEntities;
 import io.github.nosrick.init.ModBlocks;
@@ -17,7 +17,7 @@ public class MoMCraftClientMod implements ClientModInitializer {
                 ResearchAltarRenderer::new);
 
         ColorProviderRegistry.BLOCK.register(
-                new ResearchAltarColorProvider(),
+                new OwnableColorProvider(),
                 ModBlocks.Blocks.RESEARCH_ALTAR.block);
     }
 }

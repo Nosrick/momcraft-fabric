@@ -1,5 +1,7 @@
 package io.github.nosrick;
 
+import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
+import io.github.nosrick.init.ModBlockEntities;
 import io.github.nosrick.init.ModBlocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -21,10 +23,14 @@ public class MoMCraftMod implements ModInitializer {
             .icon(() -> new ItemStack(Items.BOOK))
             .build();
 
-    private static final ModBlocks MOD_BLOCKS = new ModBlocks();
+    private ModBlocks MOD_BLOCKS;
+    private ModComponents MOD_COMPONENTS;
+    private ModBlockEntities MOD_BLOCKENTITIES;
 
     @Override
     public void onInitialize() {
-
+        MOD_BLOCKS = new ModBlocks();
+        MOD_COMPONENTS = new ModComponents();
+        MOD_BLOCKENTITIES = new ModBlockEntities();
     }
 }

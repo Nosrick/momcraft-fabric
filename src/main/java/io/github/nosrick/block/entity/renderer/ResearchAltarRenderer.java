@@ -66,5 +66,7 @@ public class ResearchAltarRenderer extends BlockEntityRenderer<BlockEntityResear
                     1.0f,
                     1.0f);
         matrices.pop();
+
+
     }
 }

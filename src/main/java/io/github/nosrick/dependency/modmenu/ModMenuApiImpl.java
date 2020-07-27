@@ -1,4 +1,4 @@
-package io.github.nosrick.dependency;
+package io.github.nosrick.dependency.modmenu;
 
 import io.github.prospector.modmenu.api.ModMenuApi;
 
