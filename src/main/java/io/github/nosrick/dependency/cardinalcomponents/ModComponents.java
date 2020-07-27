@@ -6,7 +6,7 @@ import io.github.nosrick.MoMCraftMod;
 import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.components.ColouredOwnableComponent;
 import io.github.nosrick.components.PlayerOwnableComponent;
-import io.github.nosrick.util.HexCodeGenerator;
+import io.github.nosrick.util.HexCodeUtil;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.util.EntityComponents;
@@ -29,7 +29,7 @@ public class ModComponents implements EntityComponentInitializer {
     }
 
     private static IOwnable createForPlayer(PlayerEntity playerEntity) {
-        return new PlayerOwnableComponent(playerEntity, HexCodeGenerator.generate());
+        return new PlayerOwnableComponent(playerEntity, HexCodeUtil.generate());
     }
 
     public static IOwnable createForBlockEntity() {

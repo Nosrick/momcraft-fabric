@@ -18,11 +18,13 @@ import java.util.stream.Collectors;
 public class BlockEntityOwnable extends BlockEntityBase implements ComponentProvider, BlockEntityClientSerializable {
 
     protected final List<TypeAwareComponent> components;
+    protected boolean rerender;
 
     public BlockEntityOwnable(TypeAwareComponent ownable, BlockEntityType<?> type) {
         super(type);
         this.components = new ArrayList<>();
         this.components.add(ownable);
+        rerender = false;
     }
 
     @Override
@@ -42,6 +44,11 @@ public class BlockEntityOwnable extends BlockEntityBase implements ComponentProv
         }
 
         return null;
+    }
+
+    public void updateClient(boolean rerender) {
+        this.rerender |= rerender;
+        this.sync();
     }
 
     @Override
@@ -79,6 +86,9 @@ public class BlockEntityOwnable extends BlockEntityBase implements ComponentProv
 
         ownable.setColour(compoundTag.getInt("ownerColour"));
         ownable.setOwnerUUID(compoundTag.getString("ownerUUID"));
+        if(compoundTag.getBoolean("rerender")) {
+            this.getWorld().updateListeners(this.pos, this.getCachedState(), this.getCachedState(), 4);
+        }
     }
 
     @Override
@@ -87,6 +97,9 @@ public class BlockEntityOwnable extends BlockEntityBase implements ComponentProv
 
         compoundTag.putString("ownerUUID", ownable.getOwnerUUID());
         compoundTag.putInt("ownerColour", ownable.getColour());
+        compoundTag.putBoolean("rerender", this.rerender);
+
+        this.rerender = false;
 
         return compoundTag;
     }

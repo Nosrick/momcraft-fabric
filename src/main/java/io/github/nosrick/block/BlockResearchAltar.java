@@ -43,16 +43,15 @@ public class BlockResearchAltar extends BlockWithEntityBase {
             Hand hand,
             BlockHitResult hit) {
 
-        if(!world.isClient)
-        {
+        if(!world.isClient) {
             BlockEntityResearchAltar blockEntity = (BlockEntityResearchAltar) world.getBlockEntity(pos);
             IOwnable ownable = blockEntity.getComponent(ModComponents.OWNABLE);
             IOwnable playerData = IOwnable.get(player);
 
             ownable.setOwnerUUID(playerData.getOwnerUUID());
             ownable.setColour(playerData.getColour());
-            blockEntity.sync();
             blockEntity.markDirty();
+            blockEntity.updateClient(true);
         }
 
         return ActionResult.success(true);
