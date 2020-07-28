@@ -24,8 +24,8 @@ public class BlockResearchAltar extends BlockWithEntityBase {
                 FabricBlockSettings.of(
                     Material.STONE,
                     MaterialColor.BLACK),
-            new TranslatableText("block.momcraft.researchaltar"),
-"researchaltar",
+            new TranslatableText("block.master_of_magic.research_altar"),
+"research_altar",
             BlockEntityResearchAltar::new);
     }
 

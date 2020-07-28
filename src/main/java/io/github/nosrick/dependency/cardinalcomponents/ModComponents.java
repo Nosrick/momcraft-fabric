@@ -29,7 +29,7 @@ public class ModComponents implements EntityComponentInitializer {
     }
 
     private static IOwnable createForPlayer(PlayerEntity playerEntity) {
-        return new PlayerOwnableComponent(playerEntity, HexCodeUtil.generate());
+        return new PlayerOwnableComponent(playerEntity, HexCodeUtil.generate(playerEntity.getUuid()));
     }
 
     public static IOwnable createForBlockEntity() {

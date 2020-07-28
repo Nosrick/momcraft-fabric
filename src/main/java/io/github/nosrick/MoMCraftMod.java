@@ -3,6 +3,7 @@ package io.github.nosrick;
 import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import io.github.nosrick.init.ModBlockEntities;
 import io.github.nosrick.init.ModBlocks;
+import io.github.nosrick.init.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -23,14 +24,12 @@ public class MoMCraftMod implements ModInitializer {
             .icon(() -> new ItemStack(Items.BOOK))
             .build();
 
-    private ModBlocks MOD_BLOCKS;
-    private ModComponents MOD_COMPONENTS;
-    private ModBlockEntities MOD_BLOCKENTITIES;
+    private static ModBlocks modBlocks = new ModBlocks();
+    private static ModComponents modComponents = new ModComponents();
+    private static ModBlockEntities modBlockEntities = new ModBlockEntities();
+    private static ModItems modItems = new ModItems();
 
     @Override
     public void onInitialize() {
-        MOD_BLOCKS = new ModBlocks();
-        MOD_COMPONENTS = new ModComponents();
-        MOD_BLOCKENTITIES = new ModBlockEntities();
     }
 }

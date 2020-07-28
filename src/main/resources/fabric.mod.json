@@ -29,9 +29,6 @@
     ],
     "cardinal-components-entity": [
       "io.github.nosrick.dependency.cardinalcomponents.ModComponents"
-    ],
-    "cardinal-components-item": [
-      "io.github.nosrick.dependency.cardinalcomponents.ModComponents"
     ]
   },
   "mixins": [

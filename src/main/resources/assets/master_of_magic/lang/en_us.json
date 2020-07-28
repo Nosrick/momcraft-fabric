@@ -1,3 +1,5 @@
 {
-  "block.master_of_magic.researchaltar": "Research Altar"
+  "itemGroup.master_of_magic.items": "Master of Magic",
+  "block.master_of_magic.research_altar": "Research Altar",
+  "item.master_of_magic.wooden_wand": "Wooden Wand"
 }

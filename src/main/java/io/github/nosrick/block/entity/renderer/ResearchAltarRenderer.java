@@ -1,9 +1,6 @@
 package io.github.nosrick.block.entity.renderer;
 
-import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.block.entity.BlockEntityResearchAltar;
-import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
-import io.github.nosrick.util.HexCodeUtil;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -17,8 +14,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-
-import java.awt.*;
 
 public class ResearchAltarRenderer extends BlockEntityRenderer<BlockEntityResearchAltar> {
 
@@ -71,8 +66,5 @@ public class ResearchAltarRenderer extends BlockEntityRenderer<BlockEntityResear
                     1.0f,
                     1.0f);
         matrices.pop();
-
-        IOwnable ownable = entity.getComponent(ModComponents.OWNABLE);
-        Color colour = HexCodeUtil.getCodeAsColor(ownable.getColour());
     }
 }

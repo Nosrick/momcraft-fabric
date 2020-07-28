@@ -17,12 +17,10 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation( "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+	include( "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 
 	modImplementation("io.github.cottonmc:LibGui:${project.libgui_version}")
 	modImplementation("io.github.prospector:modmenu:${project.modmenu_version}")
-
-	modImplementation group: 'net.devtech', name: 'arrp', version: '0.2.6'
 
 	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
 	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-block:${project.cardinal_components_version}")
