@@ -24,8 +24,7 @@ public class BlockEntityResearchAltar extends BlockEntityOwnable implements Tick
     protected static final Random RANDOM = new Random();
 
     public BlockEntityResearchAltar() {
-        super(
-                ModComponents.createForBlockEntity(),
+        super(ModComponents.createForBlockEntity(),
                 ModBlockEntities.BlockEntities.RESEARCH_ALTAR.blockEntity);
     }
 

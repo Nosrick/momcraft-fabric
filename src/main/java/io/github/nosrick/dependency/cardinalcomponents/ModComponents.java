@@ -9,6 +9,7 @@ import io.github.nosrick.components.PlayerOwnableComponent;
 import io.github.nosrick.util.HexCodeUtil;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
+import nerdhub.cardinal.components.api.event.EntityComponentCallback;
 import nerdhub.cardinal.components.api.util.EntityComponents;
 import nerdhub.cardinal.components.api.util.RespawnCopyStrategy;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,15 +22,18 @@ public class ModComponents implements EntityComponentInitializer {
 
     public static final List<ComponentType> COMPONENTS = getComponents();
 
+    public static final Identifier OWNABLE_ID = new Identifier(MoMCraftMod.MOD_ID, "ownable");
+
     public static final ComponentType<IOwnable> OWNABLE = ComponentRegistry.INSTANCE.registerIfAbsent(
-                                                            new Identifier(MoMCraftMod.MOD_ID, "ownable"),
+                                                            OWNABLE_ID,
                                                             IOwnable.class);
 
     public ModComponents() {
     }
 
     private static IOwnable createForPlayer(PlayerEntity playerEntity) {
-        return new PlayerOwnableComponent(playerEntity, HexCodeUtil.generate(playerEntity.getUuid()));
+        PlayerOwnableComponent component = new PlayerOwnableComponent(playerEntity, HexCodeUtil.generate(playerEntity.getUuid()));
+        return component;
     }
 
     public static IOwnable createForBlockEntity() {
@@ -44,8 +48,10 @@ public class ModComponents implements EntityComponentInitializer {
 
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry entityComponentFactoryRegistry) {
-        entityComponentFactoryRegistry.registerFor(PlayerEntity.class, OWNABLE, ModComponents::createForPlayer);
+        //entityComponentFactoryRegistry.registerFor(PlayerEntity.class, OWNABLE, ModComponents::createForPlayer);
 
+        EntityComponentCallback.event(PlayerEntity.class).register((player, components) ->
+                components.put(OWNABLE, createForPlayer(player)));
         EntityComponents.setRespawnCopyStrategy(OWNABLE, RespawnCopyStrategy.ALWAYS_COPY);
 
         MoMCraftMod.LOGGER.info("REGISTERED COMPONENTS");

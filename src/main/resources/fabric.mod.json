@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "master_of_magic",
   "version": "${version}",
-
   "name": "MoMCraft",
   "description": "Bringing a little magic to the world of Minecraft.",
   "authors": [
@@ -12,10 +11,8 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/nosrick/momcraft-fabric"
   },
-
   "license": "CC0-1.0",
   "icon": "assets/modid/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -31,9 +28,13 @@
       "io.github.nosrick.dependency.cardinalcomponents.ModComponents"
     ]
   },
+  "custom": {
+      "cardinal-components" : [
+        "master_of_magic:ownable"
+      ]
+  },
   "mixins": [
   ],
-
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",

@@ -20,11 +20,11 @@ dependencies {
 	include( "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 
 	modImplementation("io.github.cottonmc:LibGui:${project.libgui_version}")
-	modImplementation("io.github.prospector:modmenu:${project.modmenu_version}")
+	modCompileOnly("io.github.prospector:modmenu:${project.modmenu_version}")
+	modRuntime("io.github.prospector:modmenu:${project.modmenu_version}")
 
 	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
 	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-block:${project.cardinal_components_version}")
-	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-chunk:${project.cardinal_components_version}")
 	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}")
 	modImplementation("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-util:${project.cardinal_components_version}")
 
