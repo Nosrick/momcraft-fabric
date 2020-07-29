@@ -23,16 +23,23 @@ public class ModComponents implements EntityComponentInitializer {
     public static final List<ComponentType> COMPONENTS = getComponents();
 
     public static final Identifier OWNABLE_ID = new Identifier(MoMCraftMod.MOD_ID, "ownable");
+    public static final Identifier PLAYER_OWNABLE_ID = new Identifier(MoMCraftMod.MOD_ID, "player_ownable");
 
     public static final ComponentType<IOwnable> OWNABLE = ComponentRegistry.INSTANCE.registerIfAbsent(
                                                             OWNABLE_ID,
                                                             IOwnable.class);
 
+    public static final ComponentType<PlayerOwnableComponent> PLAYER_OWNABLE = ComponentRegistry.INSTANCE.registerIfAbsent(
+                                                            PLAYER_OWNABLE_ID,
+                                                            PlayerOwnableComponent.class);
+
     public ModComponents() {
     }
 
     private static IOwnable createForPlayer(PlayerEntity playerEntity) {
-        PlayerOwnableComponent component = new PlayerOwnableComponent(playerEntity, HexCodeUtil.generate(playerEntity.getUuid()));
+        PlayerOwnableComponent component = new PlayerOwnableComponent(
+                                                playerEntity,
+                                                HexCodeUtil.generate(playerEntity.getUuid()));
         return component;
     }
 
@@ -51,8 +58,8 @@ public class ModComponents implements EntityComponentInitializer {
         //entityComponentFactoryRegistry.registerFor(PlayerEntity.class, OWNABLE, ModComponents::createForPlayer);
 
         EntityComponentCallback.event(PlayerEntity.class).register((player, components) ->
-                components.put(OWNABLE, createForPlayer(player)));
-        EntityComponents.setRespawnCopyStrategy(OWNABLE, RespawnCopyStrategy.ALWAYS_COPY);
+                components.put(PLAYER_OWNABLE, createForPlayer(player)));
+        EntityComponents.setRespawnCopyStrategy(PLAYER_OWNABLE, RespawnCopyStrategy.ALWAYS_COPY);
 
         MoMCraftMod.LOGGER.info("REGISTERED COMPONENTS");
     }
