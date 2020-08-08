@@ -1,9 +1,10 @@
 package io.github.nosrick;
 
-import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
-import io.github.nosrick.init.ModBlockEntities;
-import io.github.nosrick.init.ModBlocks;
-import io.github.nosrick.init.ModItems;
+import io.github.nosrick.common.dependency.cardinalcomponents.ModComponents;
+import io.github.nosrick.common.init.ModBlockEntities;
+import io.github.nosrick.common.init.ModBlocks;
+import io.github.nosrick.common.init.ModItems;
+import io.github.nosrick.common.init.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -24,12 +25,16 @@ public class MoMCraftMod implements ModInitializer {
             .icon(() -> new ItemStack(Items.BOOK))
             .build();
 
-    private static ModBlocks modBlocks = new ModBlocks();
-    private static ModComponents modComponents = new ModComponents();
-    private static ModBlockEntities modBlockEntities = new ModBlockEntities();
-    private static ModItems modItems = new ModItems();
-
     @Override
     public void onInitialize() {
+        ModBlocks.initialise();
+        ModBlockEntities.initialise();
+        ModItems.initialise();
+        ModScreenHandlers.initialise();
+        ModComponents.initialise();
+    }
+
+    public static Identifier identifier(String name) {
+        return new Identifier(MOD_ID, name);
     }
 }
