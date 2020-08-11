@@ -25,11 +25,11 @@ public class MoMCraftMod implements ModInitializer {
             .build();
 
     private static ModBlocks modBlocks = new ModBlocks();
-    private static ModComponents modComponents = new ModComponents();
     private static ModBlockEntities modBlockEntities = new ModBlockEntities();
     private static ModItems modItems = new ModItems();
 
     @Override
     public void onInitialize() {
+        ModComponents.initialise();
     }
 }

@@ -2,7 +2,6 @@ package io.github.nosrick.block;
 
 import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.block.entity.BlockEntityResearchAltar;
-import io.github.nosrick.components.PlayerOwnableComponent;
 import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import nerdhub.cardinal.components.api.component.ComponentProvider;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -48,7 +47,7 @@ public class BlockResearchAltar extends BlockWithEntityBase {
         if(!world.isClient) {
             BlockEntityResearchAltar blockEntity = (BlockEntityResearchAltar) world.getBlockEntity(pos);
             IOwnable ownable = blockEntity.getComponent(ModComponents.OWNABLE);
-            PlayerOwnableComponent playerData = ModComponents.PLAYER_OWNABLE.get(ComponentProvider.fromEntity(player));
+            IOwnable playerData = ModComponents.OWNABLE.get(ComponentProvider.fromEntity(player));
 
             if(!ownable.getOwnerUUID().equals("")) {
                 return ActionResult.PASS;
