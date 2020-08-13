@@ -1,6 +1,5 @@
 package io.github.nosrick.components;
 
-import com.mojang.serialization.Dynamic;
 import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import nerdhub.cardinal.components.api.ComponentType;
@@ -53,16 +52,6 @@ public class ColouredOwnableComponent implements IOwnable {
         compoundTag.putString("ownerUUID", this.ownerUUID);
         compoundTag.putInt("ownerColour", this.ownerColour);
         return compoundTag;
-    }
-
-    @Override
-    public void fromDynamic(Dynamic<?> dynamic) {
-
-    }
-
-    @Override
-    public <T> Dynamic<T> toDynamic(Dynamic<T> dynamic) {
-        return null;
     }
 
     @Override

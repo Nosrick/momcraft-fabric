@@ -1,8 +1,11 @@
 package io.github.nosrick.block.entity;
 
+import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import io.github.nosrick.init.ModBlockEntities;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.MathHelper;
 
@@ -83,5 +86,39 @@ public class BlockEntityResearchAltar extends BlockEntityOwnable implements Tick
         h = MathHelper.clamp(h, -0.2F, 0.2F);
         this.field_11967 += (h - this.field_11967) * 0.9F;
         this.nextPageAngle += this.field_11967;
+    }
+
+    @Override
+    public void fromTag(BlockState state, CompoundTag tag) {
+        super.fromTag(state, tag);
+        IOwnable component = ModComponents.OWNABLE.get(this);
+        component.setColour(tag.getInt("ownerColour"));
+        component.setOwnerUUID(tag.getString("ownerUUID"));
+    }
+
+    @Override
+    public CompoundTag toTag(CompoundTag tag) {
+        CompoundTag tempTag = super.toTag(tag);
+        IOwnable component = ModComponents.OWNABLE.get(this);
+        tempTag.putInt("ownerColour", component.getColour());
+        tempTag.putString("ownerUUID", component.getOwnerUUID());
+        return tempTag;
+    }
+
+    @Override
+    public void fromClientTag(CompoundTag compoundTag) {
+        super.fromClientTag(compoundTag);
+        IOwnable component = ModComponents.OWNABLE.get(this);
+        compoundTag.putInt("ownerColour", component.getColour());
+        compoundTag.putString("ownerUUID", component.getOwnerUUID());
+    }
+
+    @Override
+    public CompoundTag toClientTag(CompoundTag compoundTag) {
+        CompoundTag tempTag = super.toClientTag(compoundTag);
+        IOwnable component = ModComponents.OWNABLE.get(this);
+        tempTag.putInt("ownerColour", component.getColour());
+        tempTag.putString("ownerUUID", component.getOwnerUUID());
+        return tempTag;
     }
 }

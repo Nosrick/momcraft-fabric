@@ -23,9 +23,6 @@
     ],
     "modmenu": [
       "io.github.nosrick.dependency.modmenu.ModMenuApiImpl"
-    ],
-    "cardinal-components-entity": [
-      "io.github.nosrick.dependency.cardinalcomponents.ModComponents"
     ]
   },
   "custom": {
