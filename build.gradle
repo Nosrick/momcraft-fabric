@@ -19,23 +19,21 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation( "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 
+	modCompile group: 'net.devtech', name: 'arrp', version: '0.2.6'
+	include group: 'net.devtech', name: 'arrp', version: '0.2.6'
+
 	modCompile "com.github.vini2003:spinnery:${project.spinnery_version}"
 	include "com.github.vini2003:spinnery:${project.spinnery_version}"
 
 	modCompileOnly("io.github.prospector:modmenu:${project.modmenu_version}")
 	modRuntime("io.github.prospector:modmenu:${project.modmenu_version}")
 
-	modCompile("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
-	include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
-	modCompile("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-block:${project.cardinal_components_version}")
-	include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-block:${project.cardinal_components_version}")
-	modCompile("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}")
-	include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}")
-	modCompile("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-util:${project.cardinal_components_version}")
-	include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-util:${project.cardinal_components_version}")
+	//modCompile include ("io.github.onyxstudios.Cardinal-Components-API:${project.cardinal_components_version}")
 
-	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-	// You may need to force-disable transitiveness on them.
+	modCompile include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-base:${project.cardinal_components_version}")
+	modCompile include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-block:${project.cardinal_components_version}")
+	modCompile include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-entity:${project.cardinal_components_version}")
+	modCompile include("io.github.onyxstudios.Cardinal-Components-API:cardinal-components-util:${project.cardinal_components_version}")
 }
 
 processResources {

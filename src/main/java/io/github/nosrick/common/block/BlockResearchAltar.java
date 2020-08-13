@@ -1,13 +1,10 @@
 package io.github.nosrick.common.block;
 
-import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.common.block.entity.BlockEntityResearchAltar;
+import io.github.nosrick.common.components.ColouredOwnableComponent;
+import io.github.nosrick.common.components.PlayerOwnableComponent;
 import io.github.nosrick.common.dependency.cardinalcomponents.ModComponents;
 import io.github.nosrick.common.gui.screenhandler.factory.ResearchAltarScreenHandlerFactory;
-import io.github.nosrick.block.entity.BlockEntityResearchAltar;
-import io.github.nosrick.components.ColouredOwnableComponent;
-import io.github.nosrick.components.PlayerOwnableComponent;
-import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import nerdhub.cardinal.components.api.component.ComponentProvider;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;

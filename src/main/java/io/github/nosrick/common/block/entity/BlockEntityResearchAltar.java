@@ -1,8 +1,11 @@
-package io.github.nosrick.block.entity;
+package io.github.nosrick.common.block.entity;
 
+import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.common.dependency.cardinalcomponents.ModComponents;
 import io.github.nosrick.common.init.ModBlockEntities;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.MathHelper;
 

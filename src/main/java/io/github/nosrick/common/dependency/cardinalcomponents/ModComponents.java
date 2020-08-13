@@ -1,8 +1,5 @@
 package io.github.nosrick.common.dependency.cardinalcomponents;
 
-import dev.onyxstudios.cca.api.v3.component.ComponentKey;
-import dev.onyxstudios.cca.api.v3.component.entity.EntityComponentFactoryRegistry;
-import dev.onyxstudios.cca.api.v3.component.entity.EntityComponentInitializer;
 import io.github.nosrick.MoMCraftMod;
 import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.common.components.ColouredOwnableComponent;
@@ -11,6 +8,8 @@ import io.github.nosrick.common.util.HexCodeUtil;
 import nerdhub.cardinal.components.api.ComponentRegistry;
 import nerdhub.cardinal.components.api.ComponentType;
 import nerdhub.cardinal.components.api.event.EntityComponentCallback;
+import nerdhub.cardinal.components.api.util.EntityComponents;
+import nerdhub.cardinal.components.api.util.RespawnCopyStrategy;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 
