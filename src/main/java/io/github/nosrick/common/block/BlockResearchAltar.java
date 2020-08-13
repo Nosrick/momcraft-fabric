@@ -4,6 +4,10 @@ import io.github.nosrick.api.interfaces.IOwnable;
 import io.github.nosrick.common.block.entity.BlockEntityResearchAltar;
 import io.github.nosrick.common.dependency.cardinalcomponents.ModComponents;
 import io.github.nosrick.common.gui.screenhandler.factory.ResearchAltarScreenHandlerFactory;
+import io.github.nosrick.block.entity.BlockEntityResearchAltar;
+import io.github.nosrick.components.ColouredOwnableComponent;
+import io.github.nosrick.components.PlayerOwnableComponent;
+import io.github.nosrick.dependency.cardinalcomponents.ModComponents;
 import nerdhub.cardinal.components.api.component.ComponentProvider;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
@@ -23,8 +27,7 @@ import net.minecraft.world.World;
 public class BlockResearchAltar extends BlockWithEntityBase {
 
     public BlockResearchAltar() {
-        super(
-                FabricBlockSettings.of(
+        super(FabricBlockSettings.of(
                     Material.STONE,
                     MaterialColor.BLACK),
             new TranslatableText("block.master_of_magic.research_altar"),
@@ -48,8 +51,8 @@ public class BlockResearchAltar extends BlockWithEntityBase {
 
         if(!world.isClient) {
             BlockEntityResearchAltar blockEntity = (BlockEntityResearchAltar) world.getBlockEntity(pos);
-            IOwnable ownable = blockEntity.getComponent(ModComponents.OWNABLE);
-            IOwnable playerData = ModComponents.PLAYER_OWNABLE.get(ComponentProvider.fromEntity(player));
+            ColouredOwnableComponent ownable = (ColouredOwnableComponent) blockEntity.getComponent(ModComponents.OWNABLE);
+            PlayerOwnableComponent playerData = (PlayerOwnableComponent) ModComponents.OWNABLE.get(ComponentProvider.fromEntity(player));
 
             if(ownable.getOwnerUUID().equals(playerData.getOwnerUUID())){
                 player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
@@ -66,8 +69,7 @@ public class BlockResearchAltar extends BlockWithEntityBase {
             }
         }
 
-        return ActionResult.success(true);
-
+        return ActionResult.PASS;
     }
 
     @Override

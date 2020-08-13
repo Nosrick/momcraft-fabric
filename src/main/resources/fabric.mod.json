@@ -23,14 +23,11 @@
     ],
     "modmenu": [
       "io.github.nosrick.common.dependency.modmenu.ModMenuApiImpl"
-    ],
-    "cardinal-components-entity": [
-      "io.github.nosrick.common.dependency.cardinalcomponents.ModComponents"
     ]
   },
   "custom": {
       "cardinal-components" : [
-        "master_of_magic:player_ownable"
+        "master_of_magic:ownable"
       ]
   },
   "mixins": [
